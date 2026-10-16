@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1380 1020" width="1380" height="1020" role="img" aria-labelledby="title">
+<title id="title">Sunlit Shore desktop and mobile wireframes</title>
+<rect width="1380" height="1020" rx="20" fill="#f1f2eb"/>
+<text x="38" y="57" fill="#163f45" font-family="Arial" font-weight="900" font-size="34">WIREFRAMES / DESKTOP + MOBILE</text>
+<text x="40" y="85" font-family="monospace" font-size="15" fill="#627375">Concept-level layout references. Actual viewport shows one spatial region at a time.</text>
+<g transform="translate(38 122)">
+<rect width="924" height="700" rx="18" fill="#52cbd1" stroke="#164d52" stroke-width="3"/>
+<path d="M735 0 C670 180 900 315 665 700H924V0Z" fill="#ffefc7"/>
+<path d="M727 0C662 180 892 315 657 700" fill="none" stroke="#fff" stroke-width="13"/>
+<rect x="30" y="22" width="173" height="45" rx="8" fill="#fffdf4" stroke="#1c3e40" stroke-width="2"/>
+<text x="45" y="52" font-size="23" font-family="Arial" font-weight="900" fill="#163f45">sunlitshore.</text>
+<rect x="592" y="22" width="300" height="45" rx="8" fill="#fffdf4" stroke="#1c3e40" stroke-width="2"/>
+<text x="615" y="50" font-family="monospace" font-size="15" fill="#163f45">WORK PLAY ABOUT CONTACT</text>
+<text x="95" y="220" font-family="monospace" font-size="18" font-weight="800" fill="#1a5f62">PORTFOLIO / 001</text>
+<text x="91" y="315" font-family="Arial" font-size="82" font-weight="900" letter-spacing="-5" fill="#154951">Make waves.</text>
+<text x="91" y="402" font-family="Arial" font-size="76" font-weight="900" letter-spacing="-5" fill="#154951">On the web.</text>
+<rect x="92" y="476" width="215" height="52" rx="8" fill="#183f46"/>
+<text x="111" y="508" font-family="Arial" font-size="17" font-weight="800" fill="white">Explore my work →</text>
+<text x="94" y="570" font-family="monospace" font-size="15" fill="#286772">CURSOR DRIVES STYLIZED WAKE</text>
+<rect x="697" y="548" width="193" height="131" rx="8" fill="#fffdf4" stroke="#1c4144" stroke-width="2"/>
+<path d="M710 581 H875 V660 H710Z" fill="#93dcd4"/><path d="M779 581L761 621L771 660" fill="none" stroke="#ffeed1" stroke-width="9"/>
+<text x="708" y="567" font-family="monospace" font-size="12" fill="#1c4144">MAP</text>
+<rect x="25" y="650" width="233" height="34" rx="6" fill="#fffdf4" stroke="#1c4144"/>
+<text x="39" y="673" font-family="monospace" font-size="14" fill="#1c4144">HOME   −   +   ↗</text>
+<text x="18" y="752" font-family="Arial" font-size="20" font-weight="800" fill="#163f45">DESKTOP / SPATIAL VIEWPORT</text>
+</g>
+<g transform="translate(1010 122)">
+<rect width="300" height="774" rx="25" fill="#fff0cb" stroke="#164d52" stroke-width="4"/>
+<rect x="10" y="10" width="280" height="57" rx="12" fill="#fffdf4"/>
+<text x="26" y="48" font-family="Arial" font-size="24" font-weight="900" fill="#163f45">sunlitshore.</text>
+<rect x="244" y="21" width="33" height="34" rx="6" fill="#ffb950"/>
+<path d="M251 34 H271M251 40H271" stroke="#193f45" stroke-width="2"/>
+<rect x="10" y="68" width="280" height="282" fill="#6fd6da"/>
+<circle cx="252" cy="116" r="23" fill="#ffb950"/>
+<text x="24" y="175" font-family="Arial" font-size="38" font-weight="900" fill="#163f45">Make waves.</text>
+<text x="24" y="216" font-family="Arial" font-size="35" font-weight="900" fill="#163f45">On the web.</text>
+<rect x="24" y="263" width="144" height="37" rx="7" fill="#183f46"/>
+<text x="38" y="287" font-family="Arial" font-size="14" fill="white">Explore my work</text>
+<path d="M10 346 Q90 363 150 347 T290 346" fill="none" stroke="white" stroke-width="12"/>
+<text x="24" y="400" font-family="Arial" font-size="31" font-weight="900" fill="#39352f">Selected work</text>
+<g transform="translate(34 433) rotate(-4 110 90)"><rect width="221" height="185" fill="#fffdf4" stroke="#39352f" stroke-width="2"/><rect x="10" y="21" width="201" height="130" fill="#a9e0d4"/><text x="35" y="94" font-family="Arial" font-size="30" font-weight="900" fill="#255158">PROJECT 01</text><text x="10" y="174" font-family="monospace" font-size="12" fill="#39352f">POSTCARD + SCREENSHOT</text></g>
+<g transform="translate(40 660)"><rect width="220" height="67" rx="7" fill="#e8f7e9" stroke="#30545b"/><text x="17" y="39" font-family="Arial" font-size="20" font-weight="800" fill="#30545b">PLAYGROUND ↓</text></g>
+<text x="0" y="816" font-family="Arial" font-size="20" font-weight="800" fill="#163f45">MOBILE / LINEAR ACCESS</text>
+</g>
+</svg>

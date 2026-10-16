@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#a9e9e3">
+  <meta name="description" content="Sunlit Shore — an interactive, code-first creative portfolio concept. Explore the coast, discover work, and make waves.">
+  <title>Sunlit Shore — Make waves on the web</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#selected-work" data-goto="selected-work">Skip to projects</a>
+  <div class="site-shell" id="app">
+    <header class="site-header">
+      <a href="#home" class="brand" data-goto="home" aria-label="Sunlit Shore, return home"><span class="brand-mark" aria-hidden="true">~</span><span>sunlit<span class="brand-italic">shore</span><span class="brand-dot">.</span></span></a>
+      <nav class="site-nav" aria-label="Primary navigation">
+        <a href="#selected-work" data-goto="selected-work">Work</a>
+        <a href="#playground" data-goto="playground">Playground</a>
+        <a href="#about" data-goto="about">About</a>
+        <a href="#contact" data-goto="contact">Contact <span aria-hidden="true">↗</span></a>
+      </nav>
+      <button class="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="mobile-menu"><span></span><span></span></button>
+    </header>
+    <nav class="mobile-menu" id="mobile-menu" aria-label="Mobile navigation" hidden>
+      <a href="#selected-work" data-goto="selected-work">Work</a><a href="#playground" data-goto="playground">Playground</a><a href="#archive" data-goto="archive">Archive</a><a href="#about" data-goto="about">About</a><a href="#contact" data-goto="contact">Contact</a><button type="button" class="mobile-motion-toggle" id="mobile-motion-toggle" aria-pressed="false">Motion: on</button>
+    </nav>
+    <main class="viewport" id="viewport" aria-label="Interactive portfolio landscape">
+      <div class="world" id="world">
+        <div class="ocean-texture" aria-hidden="true"></div>
+        <svg class="world-landscape" viewBox="0 0 2500 2300" preserveAspectRatio="none" aria-hidden="true">
+          <defs>
+            <linearGradient id="shallow" x1="0" x2="1"><stop offset="0" stop-color="#a4e9dd"/><stop offset="1" stop-color="#f4edca"/></linearGradient>
+          </defs>
+          <path d="M 1402,-40 C 1278,196 1465,260 1350,486 C 1227,732 885,710 908,1041 C 936,1356 651,1419 734,1693 C 837,2024 615,2090 696,2360 L2550,2360 L2550,-40 Z" fill="url(#shallow)" opacity=".85"/>
+          <path d="M 1480,-40 C 1345,198 1536,267 1424,500 C 1304,744 981,750 998,1062 C 1024,1389 739,1483 824,1743 C 936,2043 720,2124 796,2360 L2550,2360 L2550,-40 Z" fill="#faedcb"/>
+          <path d="M 1412,-40 C 1289,202 1477,261 1364,489 C 1242,730 905,721 925,1045 C 948,1367 677,1425 749,1707 C 865,2016 648,2094 716,2360" fill="none" stroke="#f8ffff" stroke-width="21" opacity=".9"/>
+          <path d="M 1391,-40 C 1268,202 1456,261 1343,489 C 1221,730 884,721 904,1045 C 927,1367 656,1425 728,1707 C 844,2016 627,2094 695,2360" fill="none" stroke="#e8fffa" stroke-width="5" opacity=".7"/>
+          <path d="M 1532,-40 C 1383,201 1591,267 1478,520 C 1381,736 1051,793 1052,1085 C 1071,1393 789,1498 884,1758" fill="none" stroke="#e9d7a7" stroke-width="2" opacity=".55"/>
+          <g fill="none" stroke="#ffffff" opacity=".26" stroke-linecap="round">
+            <path d="M 88,206 q92,-35 191,-5 m80,86 q89,-28 150,-10 m-301,173 q95,-18 164,4 m287,-223 q73,-26 121,0 m-535,405 q109,-32 207,10" stroke-width="3"/>
+            <path d="M 186,781 q111,-42 197,3 m88,-114 q75,-33 183,1 m-538,310 q84,-22 142,3 m181,154 q67,-26 150,2 m-492,179 q119,-38 216,0" stroke-width="4"/>
+          </g>
+          <g fill="#e4c78f" opacity=".43">
+            <circle cx="1790" cy="738" r="2"/><circle cx="1898" cy="841" r="1.7"/><circle cx="2296" cy="1172" r="2"/><circle cx="1330" cy="1339" r="1.5"/><circle cx="1085" cy="1848" r="2"/><circle cx="1970" cy="1859" r="1.7"/>
+          </g>
+        </svg>
+        <div class="decor decor-sun" aria-hidden="true"><span class="sun-rays"></span><span class="sun-center"></span></div>
+        <span class="decor decor-coast-label" aria-hidden="true">a little corner of the internet <span>↘</span></span>
+        <span class="decor decor-shell-one" aria-hidden="true">✳</span>
+        <span class="decor decor-shell-two" aria-hidden="true">✳</span>
+        <span class="decor decor-star" aria-hidden="true">✴</span>
+        <div class="decor floating-note" aria-hidden="true"><span>✦</span><span>currently making<br>tiny big things.</span></div>
+
+        <section class="scene hero" id="home" data-scene="home" aria-labelledby="hero-title">
+          <canvas class="mobile-water" id="mobile-water" aria-hidden="true"></canvas>
+          <p class="eyebrow ocean-eyebrow"><span class="status-dot"></span> PORTFOLIO / OPEN FOR EXPLORATION</p>
+          <h1 id="hero-title">Make <em>waves.</em><br><span class="hero-second">On the web.</span></h1>
+          <p class="hero-description">A sun-soaked corner of the internet for things I make, break, and bring to life.</p>
+          <div class="hero-actions"><a href="#selected-work" class="button button-dark" data-goto="selected-work">Explore my work <span aria-hidden="true">↗</span></a><a href="#playground" class="text-link" data-goto="playground">Or just play a little <span aria-hidden="true">→</span></a></div>
+          <p class="water-hint"><span aria-hidden="true">↝</span> <span class="desktop-hint">Move your cursor through the water. Drag empty space to explore.</span><span class="mobile-hint">Tap the water to make a wake. Scroll to explore.</span></p>
+        </section>
+
+        <section class="scene work-scene" id="selected-work" data-scene="selected-work" aria-labelledby="work-title">
+          <div class="section-topline"><span>01 / WORK</span><span>THINGS THAT WASHED ASHORE</span></div>
+          <h2 id="work-title">Made with <span class="underlined-wave">curiosity.</span></h2>
+          <p class="section-lead">A few selected pieces from the workbench. Open a postcard to see what's inside.</p>
+          <div class="featured-layout">
+            <button class="project-postcard postcard-main" type="button" data-project="light" aria-label="Explore Light, professor rating platform">
+              <div class="stamp-row"><span>POSTCARD 001</span><span class="stamp-icon" aria-hidden="true">☼</span></div>
+              <div class="project-art art-light"><div class="art-browser"><span class="art-browser-controls">● ● ●</span><div class="art-light-title">light<span>.</span></div><div class="art-light-line"></div><div class="art-light-mini">Explore · Review · Learn</div></div><span class="project-art-ornament">✦</span></div>
+              <div class="postcard-meta"><span><strong>Light</strong><small>Professor rating platform · In development</small></span><span class="postcard-arrow" aria-hidden="true">↗</span></div>
+            </button>
+            <button class="project-postcard postcard-small" type="button" data-project="future" aria-label="Explore future project placeholder">
+              <div class="stamp-row"><span>POSTCARD 002</span><span>✳</span></div>
+              <div class="project-art art-future"><span class="abstract-window aw-one"></span><span class="abstract-window aw-two"></span><span class="abstract-window aw-three"></span><span class="abstract-star">✦</span></div>
+              <div class="postcard-meta"><span><strong>Next up</strong><small>Project placeholder</small></span><span class="postcard-arrow" aria-hidden="true">↗</span></div>
+            </button>
+          </div>
+        </section>
+
+        <section class="scene playground-scene" id="playground" data-scene="playground" aria-labelledby="play-title">
+          <div class="section-topline"><span>02 / THE PLAYGROUND</span><span>COME TOUCH THE GRASS. OR THE WATER.</span></div>
+          <h2 id="play-title">A place to <em>play.</em></h2>
+          <p class="section-lead">A small modular corner. Try moving the pieces — the rest of the shore stays put.</p>
+          <div class="play-area" id="play-area" aria-label="Draggable experimental objects">
+            <div class="play-grid" aria-hidden="true"></div>
+            <div class="toy toy-yellow" data-drag-toy tabindex="0" role="group" aria-label="Yellow hello note; draggable with pointer"><span>HELLO!</span><small>✳ from the shore</small></div>
+            <div class="toy toy-coral" data-drag-toy tabindex="0" role="group" aria-label="Orange circular decorative toy; draggable with pointer"><span>☼</span></div>
+            <div class="toy toy-blue" data-drag-toy tabindex="0" role="group" aria-label="Blue code note; draggable with pointer"><span>&lt; curious /&gt;</span><small>build • explore • repeat</small></div>
+            <div class="play-caption">DRAG THE OBJECTS <span aria-hidden="true">↖</span></div>
+            <button class="reset-toys" id="reset-toys" type="button">↺ Reset playground</button>
+          </div>
+          <div class="bento-mini"><div class="bento-tile tile-quote"><span class="tiny-label">A SMALL REMINDER</span><strong>Good ideas start as experiments.</strong></div><div class="bento-tile tile-current"><span class="tiny-label">CURRENTLY</span><strong>Exploring the space between design and code.</strong><span class="sparkle" aria-hidden="true">✳</span></div></div>
+        </section>
+
+        <section class="scene archive-scene" id="archive" data-scene="archive" aria-labelledby="archive-title">
+          <div class="section-topline"><span>03 / ARCHIVE</span><span>THE WHOLE COLLECTION</span></div>
+          <div class="archive-title-row"><h2 id="archive-title">The archive<span class="dot-accent">.</span></h2><div class="view-switch" role="group" aria-label="Archive display"><button type="button" class="switch-btn is-active" data-view="grid" aria-pressed="true">Grid</button><button type="button" class="switch-btn" data-view="list" aria-pressed="false">List</button></div></div>
+          <p class="section-lead">A growing collection of ideas and work in progress.</p>
+          <div class="archive-items" id="archive-items"></div>
+          <p class="archive-footnote">* Sample project entries are clearly labeled until real project information is supplied.</p>
+        </section>
+
+        <section class="scene about-scene" id="about" data-scene="about" aria-labelledby="about-title">
+          <div class="section-topline"><span>04 / ABOUT</span><span>A LITTLE MORE HUMAN</span></div>
+          <h2 id="about-title">Behind the <em>screen.</em></h2>
+          <p class="about-intro">Hey, I'm the person making these little digital things. I care about useful systems, thoughtful details, and websites that feel alive.</p>
+          <p class="about-note">This is editable sample copy. Replace it with your own story before publishing.</p>
+          <div class="about-tiles"><div><span class="tiny-label">I LIKE BUILDING</span><strong>Useful things<br>with personality.</strong></div><div><span class="tiny-label">MY APPROACH</span><strong>Think clearly.<br>Experiment often.</strong></div><div><span class="tiny-label">THIS WEBSITE</span><strong>Hand-built feelings.<br>Code-first visuals.</strong></div></div>
+        </section>
+
+        <section class="scene contact-scene" id="contact" data-scene="contact" aria-labelledby="contact-title">
+          <div class="section-topline"><span>05 / SAY HELLO</span><span>BACK TO THE WATER</span></div>
+          <p class="contact-pretitle">THE TIDE BROUGHT YOU HERE.</p>
+          <h2 id="contact-title">Let's make<br><em>something.</em></h2>
+          <p class="contact-desc">Have a project, a curious idea, or just want to say hello?</p>
+          <div class="contact-actions"><a href="mailto:hello@example.com" class="button button-dark" aria-label="Email placeholder address, replace before publishing">Say hello ↗</a><a href="https://github.com/" target="_blank" rel="noopener noreferrer" class="text-link" aria-label="GitHub homepage placeholder, replace before publishing">GitHub ↗</a></div>
+          <span class="contact-disclaimer">Contact links are placeholders until you add your information.</span>
+        </section>
+        <div class="world-endnote" aria-hidden="true">© SUNLIT SHORE · MADE TO EXPLORE · 2026</div>
+      </div>
+      <canvas id="water-canvas" class="water-canvas" aria-hidden="true"></canvas>
+    </main>
+
+    <aside class="explore-tools" aria-label="Explore tools">
+      <div class="tool-prompt"><span class="tool-dot"></span><span id="scene-label">OCEAN / HOME</span></div>
+      <div class="tool-buttons"><button type="button" id="home-view" title="Return to start" aria-label="Return to start"><span aria-hidden="true">⌂</span></button><button type="button" id="zoom-out" title="Zoom out" aria-label="Zoom out">−</button><button type="button" id="zoom-in" title="Zoom in" aria-label="Zoom in">+</button></div>
+    </aside>
+    <aside class="map-panel" aria-label="Spatial map">
+      <div class="map-title"><span>THE SHORE / MAP</span><span>↘</span></div>
+      <div class="mini-map" id="mini-map">
+        <div class="map-sea" aria-hidden="true"></div><div class="map-sand" aria-hidden="true"></div>
+        <button type="button" class="map-node map-home" data-goto="home" aria-label="Go to home"></button>
+        <button type="button" class="map-node map-work" data-goto="selected-work" aria-label="Go to work"></button>
+        <button type="button" class="map-node map-play" data-goto="playground" aria-label="Go to playground"></button>
+        <button type="button" class="map-node map-archive" data-goto="archive" aria-label="Go to archive"></button>
+        <button type="button" class="map-node map-about" data-goto="about" aria-label="Go to about"></button>
+        <button type="button" class="map-node map-contact" data-goto="contact" aria-label="Go to contact"></button>
+        <div class="map-viewport" id="map-viewport" aria-hidden="true"></div>
+      </div>
+      <div class="map-footer"><span>DRAG TO EXPLORE</span><span id="zoom-label">100%</span></div>
+    </aside>
+    <div class="scroll-hint" aria-hidden="true">SCROLL TO WANDER <span>↓</span></div>
+    <button type="button" class="motion-toggle" id="motion-toggle" aria-pressed="false" title="Toggle low-motion mode">Motion: on</button>
+  </div>
+
+  <dialog class="project-dialog" id="project-dialog" aria-labelledby="dialog-title">
+    <div class="dialog-inner"><div class="dialog-top"><span class="tiny-label">A CLOSER LOOK / PROJECT</span><button type="button" class="dialog-close" id="close-dialog" aria-label="Close project details">✕</button></div><div class="dialog-art" id="dialog-art" aria-hidden="true">✳</div><p class="eyebrow" id="dialog-meta"></p><h2 id="dialog-title"></h2><p id="dialog-description"></p><div class="dialog-tags" id="dialog-tags"></div><div class="dialog-foot"><span id="dialog-status"></span><button type="button" class="button button-dark" id="dialog-done">Back to the shore ↗</button></div></div>
+  </dialog>
+</body>
+</html>
