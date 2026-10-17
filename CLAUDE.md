@@ -32,6 +32,39 @@ Skills should be invoked by task relevance rather than loading every skill indis
 - **Emil Kowalski**: motion-specific tasks.
 - **PixiJS**: only if its rendering stack is adopted (see docs/decisions/0002-rendering-strategy.md).
 
+## Skill-Routing Policy for Sunlit Shore Project
+
+Based on `docs/DESIGN_SPEC.md` priorities and verified project skills, use this policy to select and invoke relevant skills before implementation:
+
+### Task-Based Skill Selection
+
+#### 1. Planning, Debugging, Testing Workflows
+   - **Skills**: Superpowers (planning, systematic-debugging, test-driven-development, receiving-code-review, etc.)
+   - **When**: Before any implementation, when encountering bugs, writing tests, or reviewing code
+   - **Example**: `superpowers:systematic-debugging` for test failures, `superpowers:test-driven-development` before feature implementation
+
+#### 2. Interface Design & UI/Quality
+   - **Skills**: `ui-ux-pro-max` (primary), `design-taste-frontend` (for public-facing pages), `impeccable` (for refinement)
+   - **When**: Designing/building interfaces, reviewing UX/accessibility/visual quality, implementing design systems
+   - **Priority**: Prioritize `docs/DESIGN_SPEC.md` requirements over generic suggestions
+   - **Example**: Use `ui-ux-pro-max` for spatial canvas layout, responsive breakpoints, accessibility compliance
+
+#### 3. Motion Design & Performance
+   - **Skills**: `animate` (core), `animation-performance` (performance), `animation-vocabulary` (naming), `find-animation-opportunities` (identification)
+   - **When**: Implementing Water Wake, hover/lift effects, module transitions, motion performance optimization
+   - **Constraint**: Respect `prefers-reduced-motion`; animation is optional per spec
+   - **Example**: Use `animation-performance` to keep wake effects inside frame budget
+
+#### 4. Implementation Reviews
+   - **Skills**: `vercel-react-best-practices` (React performance), `web-design-guidelines` (accessibility/UI audits)
+   - **When**: Reviewing React/Vite implementation, checking Core Web Vitals, validating accessibility
+   - **Example**: Use `web-design-guidelines` to audit WCAG AA contrast, focus management
+
+### 5. Specialized Skills (Manual Invocation)
+   - **Always require explicit user request**: `banner-design`, `brand`, `slides`, `ui-styling`
+   - **Conditional**: PixiJS skills remain disabled unless explicitly selected as rendering dependency
+   - **Never auto-invoke**: Skills conflicting with SPEC (e.g., ocean simulators, 3D engines, photorealistic textures)
+
 ## Additional Notes
 
 - Keep changes surgical and goal-driven.
