@@ -6,14 +6,15 @@ This document specifies the motion and interaction design for the Sunlit Shore p
 
 ## Motion Principles
 
-Following the principles from DESIGN_SPEC.md:
+Following the principles from DESIGN_SPEC.md v2.0:
 - Animation is optional; `prefers-reduced-motion` disables transient water
 - Manual Motion toggle available
 - Decorative canvas updates only in the presence of wake
 - Frame loop ends after trails decay
-- Performance conscious: Hover 120-200ms, lift 180-280ms, module transitions 200-350ms, camera navigation ≈620ms
+- Performance conscious: Hover 120-200ms, lift 180-280ms, module transitions 200-350ms
 - All essential content survives without animation
 - Effects must remain adaptive and inexpensive
+- Horizontal panning replaced with natural vertical scrolling
 
 Following principles from design-taste-frontend skill:
 - Motion should express cause-effect relationships, not just decoration
@@ -129,34 +130,23 @@ Following principles from design-taste-frontend skill:
 - **Accessibility**: Must be visible and meet contrast requirements
 
 ### 4. Section Transitions
-**For camera movement between sections**
+**For vertical scroll movement between sections**
 
-#### Waypoint Navigation (Wheel/Click)
-- **Timing**: ≈620ms as per DESIGN_SPEC.md
+#### Scroll Fade Effects
+- **Timing**: 300-500ms for entrance/exit transitions
 - **Animation**:
-  - Smooth camera translation and scaling
-  - Easing: natural deceleration curve (ease-out)
-  - Path: direct or slightly curved for natural feel
+  - Fade-in: opacity 0 to 1 as section enters viewport from top
+  - Fade-out: opacity 1 to 0 as section leaves viewport toward bottom
+  - Easing: ease-in-out for smooth transition
 - **Trigger**: 
-  - Wheel scroll (waypoint progression)
-  - Mini-map/waypoint click
-  - Programmatic navigation
-
-#### Canvas Panning (Drag)
-- **Timing**: 1:1 tracking with optional overshoot
-- **Animation**:
-  - Immediate response to drag input
-  - Optional: subtle overshoot and bounce-back at bounds
-  - Easing: linear during drag, spring-back at release
-- **Constraints**: 
-  - Camera position clamped to world bounds
-  - Wake suppressed during active pan
-  - Momentum continuation optional (with friction)
+  - Section entering or leaving viewport (intersection observer or scroll event)
+  - Natural vertical scrolling (mouse wheel, touch drag, keyboard arrow keys)
+  - Anchor navigation or Geographic Shore Map click
 
 #### Reduced Motion Fallback
 - When `prefers-reduced-motion` is enabled:
-  - Transitions may be instant or greatly reduced
-  - Maintain spatial relationship and orientation
+  - Section transitions may be instant or greatly reduced
+  - Maintain proper positioning and readability
   - Consider crossfade instead of movement (optional)
 
 ### 5. Module and Component Transitions
@@ -298,11 +288,12 @@ Following principles from design-taste-frontend skill:
   --motion-duration-moderate: 250ms;
   --motion-duration-slow: 400ms;
   --motion-duration-wake-fade: 1200ms;
-  --motion-duration-navigation: 620ms;
+  --motion-duration-scroll-fade: 400ms;
   
   /* Easing */
   --motion-easing-entrance: cubic-bezier(0.25, 0.8, 0.25, 1); /* ease-out */
-  --motion-easing-exit: cubic-bezer(0.4, 0, 0.2, 1); /* ease-in */
+  --motion-easing-exit: cubic-bezier(0.4, 0, 0.2, 1); /* ease-in */
+  --motion-easing-scroll: cubic-bezier(0.3, 0, 0.5, 1); /* ease-in-out */
   --motion-easing-hover: cubic-bezier(0.3, 0, 0.5, 1); /* ease-in-out */
   --motion-easing-spring: cubic-bezier(0.68, -0.55, 0.265, 1.55);
   
@@ -321,8 +312,8 @@ Following principles from design-taste-frontend skill:
 
 ### JavaScript Animation Patterns
 ```javascript
-// Entrance observer
-const observer = new IntersectionObserver((entries) => {
+// Entrance observer for sections
+const sectionObserver = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
       entry.target.classList.add('is-visible');
@@ -346,11 +337,26 @@ function animateWake() {
 
 // Button press feedback
 button.addEventListener('pointerdown', () => {
-  button.style.transform = 'scale(0.95)';
+  button.style.transform = 'scale(0.95)');
 });
 
 button.addEventListener('pointerup pointerleave', () => {
   button.style.transform = '';
+});
+
+// Scroll fade observer
+const scrollFadeObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      // Trigger fade-in for entering section
+      entry.target.classList.add('is-entering');
+    } else {
+      // Trigger fade-out for leaving section
+      entry.target.classList.add('is-exiting');
+    }
+  });
+}, {
+  threshold: [0, 0.1, 0.9, 1.0]
 });
 ```
 

@@ -2,18 +2,18 @@
 
 ## Overview
 
-This document specifies the responsive behavior and breakpoints for the Sunlit Shore project, based on the approved DESIGN_SPEC.md, AI_HANDOFF.md, and architectural guidelines.
+This document specifies the responsive behavior and breakpoints for the Sunlit Shore project, based on the approved DESIGN_SPEC.md v2.0, AI_HANDOFF.md v2.0, and architectural guidelines.
 
 ## Responsive Philosophy
 
-Following the principles from DESIGN_SPEC.md:
+Following the principles from DESIGN_SPEC.md v2.0:
 - **At ≤800px**: One-column vertical reading order, standard page scroll, no global free pan
 - **Mobile is intentionally standard vertical reading flow**: Don't hijack touch scroll
 - **The shore is still visually represented**: With a local interactive water surface
 - **Text and links remain DOM-based**
 - **Core project links never require drag/hover**
 - **Navigation menu uses real buttons, dialog uses native `<dialog>`**
-- **Desktop spatial map uses buttons**
+- **Geographic Shore Map uses compact expandable navigation panel**
 
 Following principles from design-taste-frontend skill:
 - Mobile-first approach: design for smallest screen first, then enhance
@@ -25,7 +25,7 @@ Following principles from design-taste-frontend skill:
 
 ## Breakpoint System
 
-Based on the 800px threshold specified in DESIGN_SPEC.md and common device widths:
+Based on the 800px threshold specified in DESIGN_SPEC.md v2.0 and common device widths:
 
 ### Primary Breakpoint
 - **Mobile**: < 800px
@@ -35,10 +35,12 @@ Based on the 800px threshold specified in DESIGN_SPEC.md and common device width
   - No global canvas panning
 
 - **Desktop**: ≥ 800px
-  - Spatial canvas with 2D world navigation
-  - Global panning and waypoint navigation
-  - Full directional water wake
-  - Complex layout arrangements
+  - Continuous Vertical Coastal Scroll with artistic Main Scene
+  - Left sand / right ocean composition maintained
+  - Geographic Shore Map as expandable panel
+  - Full Directional Water Wake implementation
+  - Floating Skill Net with 8-10 visible logos
+  - Hover-based interactions where appropriate
 
 ### Secondary Breakpoints (for refinement)
 - **Small Mobile**: < 480px
@@ -58,7 +60,7 @@ Based on the 800px threshold specified in DESIGN_SPEC.md and common device width
 
 - **Standard Desktop**: 1024px - 1399px
   - Full desktop experience
-  - Optimal for spatial canvas
+  - Optimal for Continuous Vertical Coastal Scroll
   - Primary design target
 
 - **Wide Desktop**: ≥ 1400px
@@ -68,33 +70,36 @@ Based on the 800px threshold specified in DESIGN_SPEC.md and common device width
 
 ## Layout Transformation Rules
 
-### From Spatial to Vertical (Desktop → Mobile)
+### From Spatial Canvas to Vertical Scroll (Conceptual Update)
+
+**Note**: This project has transitioned from a spatial canvas to a Continuous Vertical Coastal Scroll. The following transformation rules are provided for conceptual understanding of the shift from the previous spatial design to the current vertical scroll layout.
 
 #### Section Order
-When converting from spatial layout to vertical stack at ≤800px, sections should follow this order:
-1. Ocean Hero (Introduction)
-2. Shoreline Transition (if implemented as separate section)
-3. Selected Work (Featured Projects)
-4. Playground (Interactive Area)
-5. Project Archive (Browsing)
-6. About (Profile/Skills)
-7. Contact (Footer/Closing)
+The eight sections follow Vietnam's coastline from north to south in vertical scroll order:
+1. TRÀ CỐ / HOME (Introduction)
+2. HẠ LONG / PROJECTS (Featured postcard projects)
+3. LĂNG CÔ / ABOUT ME (Editorial profile & personal journal)
+4. ĐÀ NẴNG / SKILLS (Bento Cards + Floating Skill Net)
+5. QUY NHƠN / RESUME (Editorial Timeline + Compact Cards)
+6. NHA TRANG / PLAYGROUND (Interactive Lab Cards + Coastal Decorations)
+7. MŨI NÉ / PROJECT ARCHIVE (Coastal Project Library)
+8. MŨI CÀ MAU / CONTACT (Open Invitation + Thank You)
 
-This maintains the spatial world route as a vertical journey.
+This maintains the coastal journey as a vertical experience.
 
-#### Spatial Properties Conversion
-- **Position**: World coordinates (x,y) become irrelevant; sections stack vertically
-- **Size**: World dimensions (width,height) become viewport-constrained with vertical scrolling
-- **Transform**: translate3d/scale becomes standard document flow
-- **Clamping**: Removed (no bounds needed in vertical layout)
-- **Panning**: Disabled (standard scroll takes over)
-- **Waypoint Navigation**: Converted to anchor links or progressive disclosure
+#### Layout Properties
+- **Position**: Vertical document flow replaces world coordinates
+- **Size**: Viewport-constrained with vertical scrolling
+- **Transform**: Standard document flow replaces translate3d/scale
+- **Clamping**: Top/bottom bounds on document scrolling
+- **Panning**: Replaced with natural vertical scrolling
+- **Waypoint Navigation**: Converted to anchor links and Geographic Shore Map
 
 #### Water System
-- **Global Water Wake**: Replaced with local water interaction
-- **Scope**: Limited to visible viewport or section-specific area
-- **Performance**: Reduced complexity for mobile performance
-- **Visual**: Still present but contained to appropriate areas
+- **Global Water Wake**: Replaced with directional water wake over water areas
+- **Scope**: Limited to water areas (right side of Main Scene)
+- **Performance**: Canvas 2D with bounded history, downsampled resolution
+- **Visual**: Present but contained to appropriate water areas
 
 ### Layout Preservation Principles
 
@@ -115,9 +120,10 @@ This maintains the spatial world route as a vertical journey.
 
 ### Navigation
 - **Desktop (≥ 800px)**:
-  - Spatial navigation: panning, waypoints, mini-map
+  - Continuous Vertical Coastal Scroll: natural vertical scrolling
   - Persistent or fixed positioning based on design
   - Hover-based interaction for desktop precision
+  - Geographic Shore Map as expandable panel
   
 - **Mobile (< 800px)**:
   - Standard navigation: fixed/top or bottom positioned
@@ -125,12 +131,14 @@ This maintains the spatial world route as a vertical journey.
   - Clear labels, touch-optimized targets
   - Hamburger menu or tab bar if many items
   - No reliance on hover
+  - Geographic Shore Map uses compact expandable navigation panel
 
 ### Project Postcards (Featured Work)
 - **Desktop**:
-  - Spatial placement within Selected Work section
-  - Playful rotation and lift-on-hover
-  - Possible overlap and arrangement
+  - Placement within Hạ Long/Projects section (left sand, right ocean)
+  - Beach postcard visuals with subtle, deliberate rotation and lift-on-hover
+  - One larger featured postcard and two supporting postcards (Approved Option C)
+  - Possible overlap and arrangement (not random regeneration)
   
 - **Mobile**:
   - Vertical stack or horizontal scroll (if many)
@@ -141,7 +149,7 @@ This maintains the spatial world route as a vertical journey.
 
 ### Archive Cards
 - **Desktop**:
-  - Grid layout within Project Archive section
+  - Grid layout within Mũi Né/Project Archive section (left sand, right ocean)
   - Possible hover previews or expansions
   - Arrange based on available width
   
@@ -180,12 +188,12 @@ This maintains the spatial world route as a vertical journey.
 
 ### Water Interaction
 - **Desktop (≥ 800px)**:
-  - Global directional water wake across spatial canvas
+  - Directional water wake over water areas (right side of Main Scene)
   - Full implementation per MOTION_SPEC.md
-  - Responsive to canvas movements and panning
+  - Responsive to cursor movement over water
   
 - **Mobile (< 800px)**:
-  - Local water interaction: limited to visible area or section
+  - Local water interaction: limited to visible water area or section
   - Possibly: 
     - Small interactive pond at bottom of screen
     - Section-specific water areas
@@ -198,7 +206,7 @@ This maintains the spatial world route as a vertical journey.
 ### CSS Approach
 - **Mobile-First**: Write base styles for mobile, then enhance with min-width queries
 - **Breakpoint Naming**: Use descriptive names rather than just numbers
-- **Viewport Units**: Use vw, vh, vmin, vmax appropriately for spatial elements
+- **Viewport Units**: Use vw, vh, vmin, vmax appropriately for layout elements
 - **Pixel Values**: Use px for fixed values like borders, but prefer relative for typography/spacing
 - **Flexbox/Grid**: Use for layout adaptation rather than absolute positioning where possible
 
@@ -212,8 +220,7 @@ This maintains the spatial world route as a vertical journey.
 /* Tablet and up */
 @media (min-width: 800px) {
   .section {
-    /* Spatial layout properties */
-    position: absolute;
+    /* Continuous Vertical Coastal Scroll layout properties */
     /* ... */
   }
 }
@@ -221,7 +228,7 @@ This maintains the spatial world route as a vertical journey.
 /* Desktop enhancements */
 @media (min-width: 1024px) {
   .section {
-    /* Enhanced spatial layout */
+    /* Enhanced Continuous Vertical Coastal Scroll layout */
     /* ... */
   }
 }
@@ -241,13 +248,15 @@ const mediaQuery = window.matchMedia('(min-width: 800px)');
 function handleBreakpointChange(e) {
   if (e.matches) {
     // Enable desktop features
-    enableSpatialCanvas();
-    enableGlobalWake();
-    disableStandardScroll();
+    enableVerticalCoastalScroll();
+    enableDirectionalWake();
+    enableGeographicMap();
+    disableStandardScrollEnhancements();
   } else {
     // Enable mobile features
-    disableSpatialCanvas();
-    disableGlobalWake();
+    disableVerticalCoastalScrollEnhancements();
+    disableDirectionalWake();
+    enableGeographicMapCompact();
     enableStandardScroll();
     enableLocalWaterInteraction();
   }
@@ -267,6 +276,8 @@ mediaQuery.addEventListener('change', handleBreakpointChange);
 - **Image Loading**: Use responsive images (srcset/sizes) for different breakpoints
 - **Resource Loading**: Conditionally load heavy assets only when needed
 - **Animation Frame**: Use requestAnimationFrame for visual updates during resize
+- **Water Wake Performance**: Canvas 2D with bounded history, downsample resolution, automatic deactivation
+- **Skill Net Animation**: Lightweight custom motion model, avoid physics simulation
 
 ### Accessibility in Responsive Design
 - **Touch Targets**: Maintain 44x44px minimum regardless of breakpoint
@@ -275,70 +286,139 @@ mediaQuery.addEventListener('change', handleBreakpointChange);
 - **Zoom**: Never disable user scaling (viewport meta: user-scalable=yes)
 - **Focus Order**: Maintain logical sequence in both layouts
 - **Hidden Content**: Ensure accessibility of content revealed at different breakpoints
+- **Reduced Motion**: All essential content and functionality must work without animation
 
 ## Specific Section Responsive Rules
 
-### Ocean Hero
-- **Desktop**: 
-  - Positioned at world coordinates (155,235)
-  - Full spatial dimensions (1030×555)
-  - Global water wake active
+### TRÀ CỐ / HOME
+- **Desktop (≥ 800px)**: 
+  - Positioned at top of document
+  - Left sand / right ocean composition
+  - Full Directional Water Wake implementation
+  - Hero introduction content
   
-- **Mobile**:
+- **Mobile (< 800px)**:
   - Full width viewport or constrained width
   - Height: content-driven with minimum viewport height
   - Local water interaction at bottom or specific area
   - Headline size reduced per DESIGN_SPEC.md (54-96px range)
   - CTA buttons full-width or touch-optimized
+  - Sand/water composition maintained (may be narrower decorative edge)
 
-### Selected Work
-- **Desktop**:
-  - Positioned at world coordinates (1425,177)
-  - Spatial dimensions (900×650)
-  - Arranged postcards with possible overlap
+### HẠ LONG / PROJECTS
+- **Desktop (≥ 800px)**:
+  - Positioned second in vertical scroll
+  - Left sand / right ocean composition
+  - Beach postcard visuals with subtle, deliberate rotation and lift-on-hover
+  - One larger featured postcard and two supporting postcards (Approved Option C)
+  - Stylized limestone islands in background (ocean area)
   
-- **Mobile**:
+- **Mobile (< 800px)**:
   - Full width container
   - Postcards in vertical stack or swipeable carousel
   - Consistent sizing for touch targets
   - Reduced or eliminated rotation
+  - Lift may become scale or opacity change
   - Vertical spacing for comfortable viewing
+  - Sand/water composition maintained
 
-### Playground
-- **Desktop**:
-  - Positioned at world coordinates (220,1005)
-  - Spatial dimensions (980×690)
-  - Full bento grid and draggables
+### LĂNG CÔ / ABOUT ME
+- **Desktop (≥ 800px)**:
+  - Positioned third in vertical scroll
+  - Left sand / right ocean composition
+  - Coastal editorial content section
+  - Personal journal/modules area
+  - Floating film-style personal photograph (placeholder)
   
-- **Mobile**:
+- **Mobile (< 800px)**:
   - Full width container
-  - Stacked vertical layout of components
-  - Touch-optimized drag targets
-  - Possible: simplified interactions due to space
-  - Reset button prominently placed
-
-### Project Archive
-- **Desktop**:
-  - Positioned at world coordinates (1470,1040)
-  - Spatial dimensions (820×650)
-  - Grid layout with possible List toggle
-  
-- **Mobile**:
-  - Full width container
-  - Single column list view (Grid may be impractical)
-  - Toggle may switch between compact and detailed views
-  - Optimized for vertical scrolling
-
-### About and Contact
-- **Desktop**:
-  - Positioned at their world coordinates
-  - Specified approximate box dimensions
-  - Spatial arrangement maintained
-  
-- **Mobile**:
-  - Full width containers
   - Standard vertical flow
   - Content-sized height (not constrained to box dimensions)
+  - Preserved readability and accessibility
+  - Sand/water composition maintained
+
+### ĐÀ NẴNG / SKILLS
+- **Desktop (≥ 800px)**:
+  - Positioned fourth in vertical scroll
+  - Left sand / right ocean composition
+  - Bento Cards on sand area (left side)
+  - Floating Skill Net on water area (right side)
+  
+- **Mobile (< 800px)**:
+  - Full width container
+  - Bento Cards stack vertically or adapt to width
+  - Floating Skill Net simplified with fewer visible nodes/logos
+  - Sand/water composition maintained (may be narrower decorative edge)
+  - Touch-optimized interactions
+
+### QUY NHƠN / RESUME
+- **Desktop (≥ 800px)**:
+  - Positioned fifth in vertical scroll
+  - Left sand / right ocean composition
+  - Large vertical Experience Timeline (left side)
+  - Compact Education Card (left side)
+  - Compact Certifications Card (left side)
+  - Download Resume PDF action
+  
+- **Mobile (< 800px)**:
+  - Full width container
+  - Standard vertical flow
+  - Experience timeline scrollable within section
+  - Cards adapt to width (may stack vertically)
+  - Sand/water composition maintained
+  - Preserved readability and accessibility
+
+### NHA TRANG / PLAYGROUND
+- **Desktop (≥ 800px)**:
+  - Positioned sixth in vertical scroll
+  - Left sand / right ocean composition
+  - Interactive Lab Cards (left side)
+  - Nha Trang Coastal Decorations (right side)
+  
+- **Mobile (< 800px)**:
+  - Full width container
+  - Standard vertical flow
+  - Interactive elements adapt to width and touch
+  - Decorations scale appropriately
+  - Sand/water composition maintained
+  - Preserved readability and accessibility
+
+### MŨI NÉ / PROJECT ARCHIVE
+- **Desktop (≥ 800px)**:
+  - Positioned seventh in vertical scroll
+  - Left sand / right ocean composition
+  - Structured project grid (Approved Option A)
+  - Search input
+  - Category filters
+  
+- **Mobile (< 800px)**:
+  - Full width container
+  - Standard vertical flow
+  - Project grid adapts to width (may become list view)
+  - Search and filter controls touch-optimized
+  - Sand/water composition maintained
+  - Preserved readability and accessibility
+
+### MŨI CÀ MAU / CONTACT
+- **Desktop (≥ 800px)**:
+  - Positioned eighth (bottom) in vertical scroll
+  - Left sand / right ocean composition transitioning to mangroves/alluvial
+  - Clear heading: CONTACT
+  - Short invitation to get in touch
+  - Primary email CTA
+  - Visible email address
+  - GitHub and LinkedIn links (where provided)
+  - Back to Top
+  - Minimal footer
+  
+- **Mobile (< 800px)**:
+  - Full width container
+  - Standard vertical flow
+  - Content-sized height (not constrained to box dimensions)
+  - Contact information and invitation readable
+  - Social links touch-optimized
+  - Back to Top returns to Trà Cổ section
+  - Sand/water composition maintained through mangrove transition
   - Preserved readability and accessibility
 
 ## Implementation from Prototype
@@ -349,6 +429,7 @@ Review the existing prototype implementation to:
 3. Plan responsive improvements that maintain core functionality
 4. Ensure mobile experience follows vertical reading order exactly
 5. Verify that global panning is disabled on mobile per spec
+6. Confirm Continuous Vertical Coastal Scroll replaces spatial canvas concept
 
 ## Testing Methodology
 

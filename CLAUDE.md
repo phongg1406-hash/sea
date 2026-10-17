@@ -47,7 +47,7 @@ Based on `docs/DESIGN_SPEC.md` priorities and verified project skills, use this 
    - **Skills**: `ui-ux-pro-max` (primary), `design-taste-frontend` (for public-facing pages), `impeccable` (for refinement)
    - **When**: Designing/building interfaces, reviewing UX/accessibility/visual quality, implementing design systems
    - **Priority**: Prioritize `docs/DESIGN_SPEC.md` requirements over generic suggestions
-   - **Example**: Use `ui-ux-pro-max` for spatial canvas layout, responsive breakpoints, accessibility compliance
+   - **Example**: Use `ui-ux-pro-max` for Continuous Vertical Coastal Scroll layout, responsive breakpoints, accessibility compliance
 
 #### 3. Motion Design & Performance
    - **Skills**: `animate` (core), `animation-performance` (performance), `animation-vocabulary` (naming), `find-animation-opportunities` (identification)

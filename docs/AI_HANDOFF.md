@@ -1,16 +1,22 @@
 # AI coding handoff — use with a text-only coding agent
 
-You are maintaining **Sunlit Shore**, a custom personal portfolio prototype. Read `README.md`, `docs/DESIGN_SPEC.md`, `docs/IMPLEMENTATION_PLAN.md`, `docs/SPATIAL_MAP.svg`, then inspect `index.html`, `styles.css`, `app.js` before editing.
+You are maintaining **Sunlit Shore**, a custom personal portfolio prototype. Read `README.md`, `docs/DESIGN_SPEC.md`, `docs/IMPLEMENTATION_PLAN.md`, `docs/ARCHITECTURE/OVERVIEW.md`, then inspect `index.html`, `styles.css`, `app.js` before editing.
 
-## Non-negotiable design decisions
+## Non-negotiable design decisions (Sunlit Shore v2.0)
 
-- Global navigable 2D desktop canvas (DOM-based world; not a bitmap text canvas).
-- Mobile is intentionally standard vertical reading flow; don't hijack touch scroll.
-- Visual direction: playful brutalism + stylized bright turquoise sea, warm sand, sunlight.
-- Water signature: **directional finger-stir wake** following velocity, fading naturally; **never replace it with concentric impact rings**.
-- Featured projects as postcards; archive as minimal cards.
-- Code-first artwork (CSS/SVG/canvas), no required Vision, no generated fake screenshots or invented project claims.
-- Performance and accessibility are first-class product requirements.
+- **Continuous Vertical Coastal Scroll**: The primary navigation is natural vertical scrolling, replacing the previous website-wide freely pannable 2D spatial canvas.
+- **Mobile is intentionally standard vertical reading flow**: Don't hijack touch scroll.
+- **Visual direction**: Playful Brutalism + Coastal Editorial Design + Stylized Tropical Environment with Warm Cream Sand and Dynamic Ocean.
+- **Water signature**: **Directional finger-stir wake** following velocity, fading naturally; **never replace it with concentric impact rings**.
+- **Featured projects as postcards**; archive as minimal cards.
+- **Shared Project Detail Modal** used for both PROJECTS and PROJECT ARCHIVE sections.
+- **Code-first artwork** (CSS/SVG/canvas), no required Vision, no generated fake screenshots or invented project claims.
+- **Performance and accessibility** are first-class product requirements.
+- **Eight main destinations** along a continuous coastal journey representing Vietnam's coastline.
+- **Geographic Shore Map** as separate navigation component (collapsed by default).
+- **Vũng Tàu Secret Easter Egg** as out-of-flow destination accessible only through discovery flow.
+- **Skill Net** as signature visual feature in the SKILLS section (Đà Nẵng).
+- **Scroll fade-in/fade-out** between sections.
 
 ## Constraints
 
@@ -44,3 +50,21 @@ P2 — Content case-study subpages and production-grade discoverability, if want
 P2 — Automated accessibility checks and performance measurement across desktop/mobile.
 
 Never start by adding 3D physics or an elaborate fluid simulation. A lightweight and intelligible experience is the goal.
+
+## Key architectural changes from v1.0
+
+**REPLACED**: Website-wide freely pannable 2D spatial canvas  
+**WITH**: Continuous Vertical Coastal Scroll with fixed left-land/right-ocean composition  
+
+**REPLACED**: Six regions in zig-zag spatial arrangement  
+**WITH**: Eight destinations in continuous vertical scroll journey  
+
+**REPLACED**: Poetic section headings (Make waves, etc.)  
+**WITH**: Conventional portfolio labels (HOME, PROJECTS, ABOUT ME, etc.)
+
+**ADDED**: Geographic Shore Map as separate navigation component  
+**ADDED**: Vũng Tàu Secret Easter Egg as out-of-flow discovery  
+**ADDED**: Skill Net as signature visual feature in SKILLS section  
+**ADDED**: Scroll fade-in/fade-out behavior between sections
+
+See `docs/DESIGN_SPEC.md` for complete specification and `docs/ARCHITECTURE/OVERVIEW.md` for architectural details.
